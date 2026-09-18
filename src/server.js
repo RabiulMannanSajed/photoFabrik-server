@@ -122,7 +122,6 @@ const connectDB = async () => {
 
   await mongoose.connect(
     `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.z68se.mongodb.net/photofebrik?retryWrites=true&w=majority&appName=Cluster0`,
-    { serverSelectionTimeoutMS: 10000 },
   );
 
   isConnected = true;
@@ -149,19 +148,19 @@ const handler = async (req, res) => {
 // but not when a serverless platform imports it and calls `handler` itself.
 const isServerless = Boolean(process.env.VERCEL);
 
-if (!isServerless) {
-  const PORT = process.env.PORT || 5000;
+// if (!isServerless) {
+//   const PORT = process.env.PORT || 5000;
 
-  connectDB()
-    .then(() => {
-      app.listen(PORT, () => {
-        console.log(`Server running on http://localhost:${PORT}`);
-      });
-    })
-    .catch((err) => {
-      console.error("Failed to start server:", err.message);
-      process.exit(1);
-    });
-}
+//   connectDB()
+//     .then(() => {
+//       app.listen(PORT, () => {
+//         console.log(`Server running on http://localhost:${PORT}`);
+//       });
+//     })
+//     .catch((err) => {
+//       console.error("Failed to start server:", err.message);
+//       process.exit(1);
+//     });
+// }
 
 export default handler;

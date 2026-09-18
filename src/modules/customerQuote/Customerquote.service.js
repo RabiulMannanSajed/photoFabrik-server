@@ -123,8 +123,8 @@
 import path from "path";
 import mongoose from "mongoose";
 
-import { CustomerQuote } from "./customerQuoteSchema.js";
 import { getGridFSBucket } from "./gridfs.js";
+import { CustomerQuote } from "./customerQuoteSchema.js";
 
 /**
  * Create a customer quote and upload
